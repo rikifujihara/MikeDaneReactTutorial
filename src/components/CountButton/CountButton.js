@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './CountButton.css'
 
 const CountButton = (props) => {
@@ -7,6 +7,12 @@ const CountButton = (props) => {
   const handleClick = () => {
       setCurrentCount(currentCount + props.incrementBy)
   }
+
+  useEffect(() => {
+    if (currentCount % 10 === 0 && currentCount != 0) {
+      alert("The count is divisible by 10, incredible")
+    }
+  }, [currentCount])
 
   return (
     <div>
